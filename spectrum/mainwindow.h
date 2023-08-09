@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-//#include <mywidget.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -19,9 +18,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-//    MyGraphicView   *myPicture1;
-//    MyGraphicView   *myPicture2;
-   // MyWidget *mywidget;
 
 };
 #endif // MAINWINDOW_H

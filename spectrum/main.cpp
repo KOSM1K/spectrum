@@ -1,12 +1,6 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <QFileSystemModel>
-#include <QFileSelector>
-
-#include <QFileDialog>
-#include <QMessageBox>
-#include <QDebug>
 
 #include <iostream>
 
@@ -15,13 +9,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
-    QString fileName = QFileDialog::getOpenFileName(new QWidget, QFileDialog::tr("Open File"),
-                                 "/home",
-                                 QFileDialog::tr("*.pcm")
-                                 );
-
-    qDebug() << "The file you chose is " << fileName;
 
     MainWindow w;
     w.show();
