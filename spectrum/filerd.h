@@ -37,8 +37,10 @@ public:
     vector<complex<double>> get_batch(unsigned long long left_sample, unsigned long long batch_size);
     vector<double> get_batch_1c(unsigned long long left_sample, unsigned long long batch_size, int channel);
 
-    ~MYsignal();
+    unsigned long long get_length();
     string get_path();
+
+    ~MYsignal();
 };
 
 #endif

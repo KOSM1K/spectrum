@@ -20,7 +20,7 @@
 
 vector<complex<double>> pair_to_cdouble(vector<pair<int16_t, int16_t>> v, double multCoef){
     vector<complex<double>> res(v.size());
-    for (int i = 0; i < v.size(); i++){
+    for (unsigned long long i = 0; i < v.size(); i++){
         res[i] = complex<double>(multCoef * (double)v[i].first, multCoef * (double)v[i].second);
     }
     return res;
@@ -28,7 +28,7 @@ vector<complex<double>> pair_to_cdouble(vector<pair<int16_t, int16_t>> v, double
 
 vector<complex<double>> pair_to_cdouble(vector<pair<int, int>> v, double multCoef) {
     vector<complex<double>> res(v.size());
-    for (int i = 0; i < v.size(); i++) {
+    for (unsigned long long i = 0; i < v.size(); i++) {
         res[i] = complex<double>(multCoef * (double)v[i].first, multCoef * (double)v[i].second);
     }
     return res;
@@ -36,7 +36,7 @@ vector<complex<double>> pair_to_cdouble(vector<pair<int, int>> v, double multCoe
 
 vector<complex<double>> pair_to_cdouble(vector<pair<float, float>> v, double multCoef) {
     vector<complex<double>> res(v.size());
-    for (int i = 0; i < v.size(); i++) {
+    for (unsigned long long i = 0; i < v.size(); i++) {
         res[i] = complex<double>(multCoef * (double)v[i].first, multCoef * (double)v[i].second);
     }
     return res;
@@ -44,7 +44,7 @@ vector<complex<double>> pair_to_cdouble(vector<pair<float, float>> v, double mul
 
 vector<complex<double>> pair_to_cdouble(vector<pair<double, double>> v, double multCoef) {
     vector<complex<double>> res(v.size());
-    for (int i = 0; i < v.size(); i++) {
+    for (unsigned long long i = 0; i < v.size(); i++) {
         res[i] = complex<double>(multCoef * (double)v[i].first, multCoef * (double)v[i].second);
     }
     return res;
@@ -149,10 +149,15 @@ vector<double> MYsignal::get_batch_1c(unsigned long long left_sample, unsigned l
     }
 }
 
-MYsignal::~MYsignal() {
-    inputFileStream.close();
+
+unsigned long long MYsignal::get_length(){
+    return this->length;
 }
 
 string MYsignal::get_path() {
     return path;
+}
+
+MYsignal::~MYsignal() {
+    inputFileStream.close();
 }

@@ -24,7 +24,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->widget_2->setFilePath(fileName);
     ui->widget_2->setChannel(1);
-    //    ui->widget_3->setFilePath(fileName);
+
+
+    ui->widget_2->setBrother(ui->widget_1);
+    ui->widget_1->setBrother(ui->widget_2);
 
 
 }
