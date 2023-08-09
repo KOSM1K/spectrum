@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <mygraphicview.h>
 //#include <mywidget.h>
 
 
