@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QString fileName = QFileDialog::getOpenFileName(new QWidget, QFileDialog::tr("Open File"),
-                                                    "../spectrum_github/Spectrum_test",
+    QString fileName = QFileDialog::getOpenFileName(new QWidget, QFileDialog::tr("Spectrum - open file"),
+                                                    "../spectrum_git/Spectrum_test/",
                                                     QFileDialog::tr("*.pcm")
                                                     );
 
@@ -30,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_2->setBrother(ui->widget_1);
     ui->widget_1->setBrother(ui->widget_2);
 
+    ui->drag_widget->setMasterWindow(this);
+
     this->createStatusBar();
 
 }
@@ -37,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::createStatusBar()
 {
 //    auto c = new QLabel("jkgdfhjgh");
-    this->statusBar()->showMessage(tr("Ready (mainwindow cpp)"));
+    this->statusBar()->showMessage("Ready (mainwindow cpp)");
 }
 
 MainWindow::~MainWindow()

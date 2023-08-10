@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     MainWindow w;
+    w.setWindowTitle("Spectrum");
     w.setWindowFlags(Qt::FramelessWindowHint) ; // no title
 
     w.setStyleSheet("color: #FFFFFF;"
@@ -29,6 +30,7 @@ int main(int argc, char *argv[])
 
     //hint:
 
+    //w.resize(2500,1000);
     //w.move(0,0); // moves window TO position (left upper anchor of main skreen is 0,0)
 
     //QCoreApplication::quit(); //native quit call from code
@@ -38,7 +40,8 @@ int main(int argc, char *argv[])
     //w.setWindowState(Qt::WindowMaximized); //развернуть (на весь экран (ну почти))
     //w.setWindowState(Qt::WindowFullScreen); //развернуть на весь экран
     //w.setWindowState(Qt::WindowNoState); //нормальное положение
-    w.resize(2500,1000);
+
+    //void enterEvent(QEnterEvent* event) override;
     w.show();
     return a.exec();
 }

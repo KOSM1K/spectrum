@@ -9,15 +9,17 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dragwidget.cpp \
     filerd.cpp \
+    graphicwidget.cpp \
     main.cpp \
-    mainwindow.cpp \
-    mywidget.cpp
+    mainwindow.cpp
 
 HEADERS += \
+    dragwidget.h \
     filerd.h \
-    mainwindow.h \
-    mywidget.h
+    graphicwidget.h \
+    mainwindow.h
 
 FORMS += \
     mainwindow.ui
