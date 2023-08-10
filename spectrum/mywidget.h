@@ -22,6 +22,8 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+    void wheelEvent(QWheelEvent *event) override;
+
     QString file_path;
     MyWidget* brother = nullptr;
     int channel01 = 0;

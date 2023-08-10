@@ -9,13 +9,17 @@
 #include <QDebug>
 
 
+
 MyWidget::MyWidget(QWidget* parent) : QWidget(parent) {
     this->setMouseTracking(true);
 }
 
+
+// painter
+// separate to different functions!!!
 void MyWidget::paintEvent(QPaintEvent *event){
     QPainter p(this);
-//
+    p.fillRect(event->rect(), Qt::black);
     if(this->file_path != ""){
         auto signal = MYsignal(this->file_path.toStdString(), "int16");
 
@@ -25,11 +29,9 @@ void MyWidget::paintEvent(QPaintEvent *event){
         if ((this->brother != nullptr) && (this->brother->start_point != this->start_point)){
             this->brother->setStartPoint(this->start_point);
             this->brother->update();
-            qDebug() << "sent from" << this->channel01 << " " << this->start_point;
         }
 
         auto buff = signal.get_batch_1c(this->start_point, this->width(), this->channel01);
-        //auto smth = max(signal.get_batch_1c(500, 4000, this->channel01));
         int height = this->height();
         int zero_line = height/2;
         double coef = (double) height / (double)pow(2,16);
@@ -68,10 +70,13 @@ void MyWidget::paintEvent(QPaintEvent *event){
                        zero_line - (buff[ind+1] * coef));
         }
     }
-    //qDebug() << "update!";
 }
 
 
+
+// control events
+
+// drag events
 void MyWidget::mouseMoveEvent(QMouseEvent *event){
     if (this->is_dragged){
         qDebug() << this->start_point;
@@ -79,18 +84,24 @@ void MyWidget::mouseMoveEvent(QMouseEvent *event){
         this->drag_x_start = event->pos().rx();
         this->update();
     }
-    qDebug() << "event";
 }
 
 void MyWidget::mousePressEvent(QMouseEvent *event){
+    this->drag_x_start = event->pos().rx();
     this->is_dragged=true;
 }
 
 void MyWidget::mouseReleaseEvent(QMouseEvent *event){
     this->is_dragged=false;
-//    qDebug() << "rele" << event->pos();
 }
 
+// zoom events
+void MyWidget::wheelEvent(QWheelEvent *event){
+    qDebug() << event->angleDelta();
+
+}
+
+// dual channel sync
 void MyWidget::setBrother(MyWidget* brother){
     this->brother = brother;
 }
@@ -99,6 +110,8 @@ void MyWidget::setStartPoint(unsigned long long start_point){
 }
 
 
+
+// init functions
 void MyWidget::setFilePath(QString new_file_path){
     this->file_path = new_file_path;
 }

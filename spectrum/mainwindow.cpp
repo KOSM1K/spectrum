@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDebug>
+#include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,7 +30,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_2->setBrother(ui->widget_1);
     ui->widget_1->setBrother(ui->widget_2);
 
+    this->createStatusBar();
 
+}
+
+void MainWindow::createStatusBar()
+{
+//    auto c = new QLabel("jkgdfhjgh");
+    this->statusBar()->showMessage(tr("Ready (mainwindow cpp)"));
 }
 
 MainWindow::~MainWindow()
