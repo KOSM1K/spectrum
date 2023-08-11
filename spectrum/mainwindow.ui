@@ -61,11 +61,23 @@
       </property>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
         <property name="sizeConstraint">
          <enum>QLayout::SetMinimumSize</enum>
         </property>
+        <property name="leftMargin">
+         <number>1</number>
+        </property>
+        <property name="topMargin">
+         <number>1</number>
+        </property>
+        <property name="rightMargin">
+         <number>1</number>
+        </property>
         <item>
-         <widget class="QWidget" name="resize_widget" native="true">
+         <widget class="ResizeWidget" name="resize_widget" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -119,7 +131,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="minimise_widget" native="true">
+         <widget class="MyMinimizeWidget_" name="my_minimize_widget" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -135,7 +147,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="maximise_widget" native="true">
+         <widget class="MyMaximizeWidget_" name="my_maximize_widget" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -151,7 +163,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="close_widget" native="true">
+         <widget class="CloseWidget" name="close_widget" native="true">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -230,6 +242,30 @@
    <class>DragWidget</class>
    <extends>QWidget</extends>
    <header location="global">dragwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ResizeWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">resizewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CloseWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">closewidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyMaximizeWidget_</class>
+   <extends>QWidget</extends>
+   <header location="global">mymaximizewidget_.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MyMinimizeWidget_</class>
+   <extends>QWidget</extends>
+   <header location="global">myminimizewidget_.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

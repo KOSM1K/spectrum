@@ -1,1 +1,2 @@
 C:\Desktop\progs\c++\Spectrum_test\x64\Debug\Spectrum_test.exe
+C:\Desktop\progs\c++\spectrum_git\Spectrum_test\x64\Debug\Spectrum_test.exe

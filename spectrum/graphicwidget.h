@@ -1,4 +1,5 @@
 #pragma once
+#include "qpainter.h"
 #include <QWidget>
 #include <QPaintEvent>
 #include <memory>
@@ -29,4 +30,7 @@ protected:
     int channel01 = 0;
     int drag_x_start;
     bool is_dragged = false;
+    int aspect_ratio = 0;
+
+    QPainter painter = QPainter(this);
 };

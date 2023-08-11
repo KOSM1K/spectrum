@@ -1,6 +1,9 @@
 #include "dragwidget.h"
 #include "qevent.h"
+
 #include <QDebug>
+#include <QPainter>
+
 
 DragWidget::DragWidget(QWidget *parent)
     : QWidget{parent}
@@ -9,12 +12,16 @@ DragWidget::DragWidget(QWidget *parent)
 }
 
 void DragWidget::mouseMoveEvent(QMouseEvent *event){
-    qDebug() << this->absolute_pos_x << " " << event->pos().x() << " " << this->absolute_pos_y << " " << event->pos().y() << " " << this->prev_pos_x << " " << this->prev_pos_y;
+//    qDebug() << this->absolute_pos_x << " " << event->pos().x() << " " << this->absolute_pos_y << " " << event->pos().y() << " " << this->prev_pos_x << " " << this->prev_pos_y;
 
 
     if (this->is_dragged){
-        auto cur_pos_x = this->prev_pos_x + (this->masterWindow->pos().x() + event->pos().x() - this->absolute_pos_x);
-        auto cur_pos_y = this->prev_pos_y + (this->masterWindow->pos().y() + event->pos().y() - this->absolute_pos_y);
+        auto delta_x = (this->masterWindow->pos().x() + event->pos().x() - this->absolute_pos_x);
+        auto delta_y = (this->masterWindow->pos().y() + event->pos().y() - this->absolute_pos_y);
+
+        auto cur_pos_x = this->prev_pos_x + delta_x;
+        auto cur_pos_y = this->prev_pos_y + delta_y;
+
         this->masterWindow->move(cur_pos_x, cur_pos_y);
     }
 }

@@ -20,8 +20,6 @@ private:
     MainWindow* masterWindow = nullptr;
 
     bool is_dragged = false;
-    int delta_pos_x;
-    int delta_pos_y;
     int absolute_pos_x;
     int absolute_pos_y;
     int prev_pos_x;

@@ -128,12 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\dsp\DSP_func.cpp" />
-    <ClCompile Include="..\filerd\filerd.cpp" />
     <ClCompile Include="Source1.cpp" />
     <ClCompile Include="Spectrum_test.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\filerd\filerd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

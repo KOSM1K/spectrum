@@ -40,8 +40,6 @@ int main(int argc, char *argv[])
     //w.setWindowState(Qt::WindowMaximized); //развернуть (на весь экран (ну почти))
     //w.setWindowState(Qt::WindowFullScreen); //развернуть на весь экран
     //w.setWindowState(Qt::WindowNoState); //нормальное положение
-
-    //void enterEvent(QEnterEvent* event) override;
     w.show();
     return a.exec();
 }
