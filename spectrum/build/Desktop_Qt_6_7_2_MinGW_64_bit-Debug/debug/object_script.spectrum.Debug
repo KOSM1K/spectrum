@@ -1,0 +1,15 @@
+debug/closewidget.o
+debug/dragwidget.o
+debug/filerd.o
+debug/graphicwidget.o
+debug/main.o
+debug/mainwindow.o
+debug/mymaximizewidget_.o
+debug/myminimizewidget_.o
+debug/resizewidget.o
+debug/moc_closewidget.o
+debug/moc_dragwidget.o
+debug/moc_mainwindow.o
+debug/moc_mymaximizewidget_.o
+debug/moc_myminimizewidget_.o
+debug/moc_resizewidget.o

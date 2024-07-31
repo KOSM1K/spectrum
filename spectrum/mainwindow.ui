@@ -36,7 +36,7 @@
     </sizepolicy>
    </property>
    <property name="focusPolicy">
-    <enum>Qt::StrongFocus</enum>
+    <enum>Qt::FocusPolicy::StrongFocus</enum>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -65,7 +65,7 @@
          <number>0</number>
         </property>
         <property name="sizeConstraint">
-         <enum>QLayout::SetMinimumSize</enum>
+         <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
         </property>
         <property name="leftMargin">
          <number>1</number>
@@ -76,26 +76,7 @@
         <property name="rightMargin">
          <number>1</number>
         </property>
-        <item>
-         <widget class="ResizeWidget" name="resize_widget" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-          <property name="cursor">
-           <cursorShape>SizeFDiagCursor</cursorShape>
-          </property>
-         </widget>
-        </item>
-        <item alignment="Qt::AlignLeft">
+        <item alignment="Qt::AlignmentFlag::AlignLeft">
          <widget class="QLabel" name="label">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
@@ -203,10 +184,10 @@
         <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
-           <enum>Qt::Vertical</enum>
+           <enum>Qt::Orientation::Vertical</enum>
           </property>
           <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
+           <enum>QSizePolicy::Policy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -242,12 +223,6 @@
    <class>DragWidget</class>
    <extends>QWidget</extends>
    <header location="global">dragwidget.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>ResizeWidget</class>
-   <extends>QWidget</extends>
-   <header location="global">resizewidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

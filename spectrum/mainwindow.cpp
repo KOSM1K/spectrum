@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->widget_1->setBrother(ui->widget_2);
 
     ui->drag_widget->setMasterWindow(this);
-    ui->resize_widget->setMasterWindow(this);
+    // ui->resize_widget->setMasterWindow(this);
     ui->close_widget->setMasterWindow(this);
     ui->my_maximize_widget->setMasterWindow(this);
     ui->my_minimize_widget->setMasterWindow(this);

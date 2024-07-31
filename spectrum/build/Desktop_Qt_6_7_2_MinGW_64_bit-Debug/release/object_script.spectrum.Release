@@ -1,0 +1,15 @@
+release/closewidget.o
+release/dragwidget.o
+release/filerd.o
+release/graphicwidget.o
+release/main.o
+release/mainwindow.o
+release/mymaximizewidget_.o
+release/myminimizewidget_.o
+release/resizewidget.o
+release/moc_closewidget.o
+release/moc_dragwidget.o
+release/moc_mainwindow.o
+release/moc_mymaximizewidget_.o
+release/moc_myminimizewidget_.o
+release/moc_resizewidget.o
