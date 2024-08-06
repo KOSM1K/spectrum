@@ -20,13 +20,14 @@ GraphicWidget::GraphicWidget(QWidget* parent) : QWidget(parent) {
 void GraphicWidget::paintEvent(QPaintEvent *event){
     this->painter.begin(this);
     this->painter.fillRect(event->rect(), Qt::black);
+    // this->painter.drawLines();
     if(this->file_path != ""){
-        auto signal = MYsignal(this->file_path.toStdString(), "int16");
+        auto signal = MYsignal(this->file_path.toStdString());
 
         this->start_point = max((long long)0, (long long)this->start_point);
         this->start_point = min((long long)this->start_point, (long long)signal.get_length());
 
-        if ((this->brother != nullptr) && (this->brother->start_point != this->start_point)){
+        if ((this->brother != nullptr) && (this->brother->start_point != this->start_point) && (this->is_dragged)){
             this->brother->setStartPoint(this->start_point);
             this->brother->update();
         }
@@ -57,7 +58,6 @@ void GraphicWidget::paintEvent(QPaintEvent *event){
             this->painter.drawLine(0,  zero_line + (i * coef), this->width(), zero_line + (i * coef));
 
         }
-
         zero_line_pen.setColor(Qt::green);
         zero_line_pen.setStyle(Qt::SolidLine);
         this->painter.setPen(zero_line_pen);
@@ -83,14 +83,18 @@ void GraphicWidget::paintEvent(QPaintEvent *event){
 // drag events
 void GraphicWidget::mouseMoveEvent(QMouseEvent *event){
     if (this->is_dragged){
-        //qDebug() << this->start_point;
-        this-> start_point -= (event->pos().rx() - this->drag_x_start) * pow(2,this->aspect_ratio);
-        this->drag_x_start = event->pos().rx();
+        auto cur = event->pos().rx();
+
+        qDebug() << (cur - this->drag_x_start);
+
+        this-> start_point -= (cur - this->drag_x_start) * pow(2,this->aspect_ratio);
+        this->drag_x_start = cur;
         this->update();
     }
 }
 
 void GraphicWidget::mousePressEvent(QMouseEvent *event){
+    qDebug() << "mouse pressed";
     this->drag_x_start = event->pos().rx();
     this->is_dragged=true;
 }

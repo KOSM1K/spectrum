@@ -18,24 +18,18 @@ class MYsignal
 private:
     ifstream inputFileStream;
     string path;
-
     unsigned long long length;
-
     unsigned int sample_size;
-
-    bool asInt16 = false,
-        asInt = false,
-        asFloat = false,
-        asDouble = false;
+    vector<pair<int16_t, int16_t>> signal_buffered;
 
 public:
-    MYsignal(string filePcmPath, string as_type);
+    MYsignal(string filePcmPath);
 
-    vector<complex<double>> get_range(unsigned long long left_sample, unsigned long long right_sample);
-    vector<double> get_range_1c(unsigned long long left_sample, unsigned long long right_sample, int channel);
+    vector<pair<int16_t, int16_t>> get_range(unsigned long long left_sample, unsigned long long right_sample);
+    vector<int16_t> get_range_1c(unsigned long long left_sample, unsigned long long right_sample, int channel);
 
-    vector<complex<double>> get_batch(unsigned long long left_sample, unsigned long long batch_size);
-    vector<double> get_batch_1c(unsigned long long left_sample, unsigned long long batch_size, int channel);
+    vector<pair<int16_t, int16_t>> get_batch(unsigned long long left_sample, unsigned long long batch_size);
+    vector<int16_t> get_batch_1c(unsigned long long left_sample, unsigned long long batch_size, int channel);
 
     unsigned long long get_length();
     string get_path();
