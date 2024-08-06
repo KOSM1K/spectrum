@@ -18,6 +18,7 @@ GraphicWidget::GraphicWidget(QWidget* parent) : QWidget(parent) {
 // painter
 // separate to different functions!!!
 void GraphicWidget::paintEvent(QPaintEvent *event){
+    // this->painter.drawPixmap();
     this->painter.begin(this);
     this->painter.fillRect(event->rect(), Qt::black);
     // this->painter.drawLines();
